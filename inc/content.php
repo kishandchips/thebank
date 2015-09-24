@@ -102,7 +102,7 @@
 									$image_size = array('width' => 200);
 									$image_url = get_image($thumbnail, $image_size);
 								?>					
-									<a href="<?php echo get_term_link( $term ); ?>" class="overlay-btn">
+									<a class="overlay-btn">
 										<img src="<?php echo $image_url; ?>" alt="">
 									</a>
 								</li>

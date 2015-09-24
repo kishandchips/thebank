@@ -167,3 +167,42 @@
 #error {
 	margin-top: 10em;	
 }
+
+.page-about {
+	.row {
+		.break-on-tablet.span.five {
+			@include device-width(10) {
+				width: 100%;
+			}
+ 		}
+	}
+}
+
+.page-contact {
+
+		.one-third {
+
+			p {
+				@include device-width(10) {
+					padding: 0px 1em !important;
+				}	
+
+				@include device-width(8) {
+				    padding: 0px 3em !important;
+				}									
+			}
+		}
+
+	.row {
+
+		.email {
+			@include device-width(9) {
+			   @include font-size(12);
+			}
+
+			@include device-width(8) {
+			    @include font-size(15); 
+			}			
+		}
+	}
+}

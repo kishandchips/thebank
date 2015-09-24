@@ -1188,7 +1188,7 @@ button:active, button:focus, a:active, a:focus {
       height: 75px;
       width: 56px;
       padding: 3.2em 1.2em 0em; } }
-  @media only screen and (max-width: 900px) {
+  @media only screen and (max-width: 700px) {
     .header-fixed .menu-btn {
       top: -25px; } }
   .menu-btn span, .menu-btn span:before, .menu-btn span:after {

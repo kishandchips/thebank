@@ -71,7 +71,7 @@ button, a {
 
 
 	.header-fixed & {
-		@include device-width(9) {
+		@include device-width(7) {
 			top: -25px;
 		}
 	}

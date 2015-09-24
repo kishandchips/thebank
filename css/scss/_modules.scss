@@ -138,7 +138,7 @@
 	.header-fixed & {
 		bottom: -48px;
 
-		@include device-width(9) {
+		@include device-width(7) {
 			bottom: -44px;			
 		}
 	}
@@ -735,6 +735,10 @@
 
 				img {
 					@include inline-block;
+				}
+
+				a {
+					cursor: default;
 				}
 
 				@include device-width(10) {

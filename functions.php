@@ -26,6 +26,8 @@ add_action( 'wp_enqueue_scripts', 'custom_scripts', 30);
 
 add_action( 'wp_print_styles', 'custom_styles', 30);
 
+add_action('wp_footer', 'add_google_analytics');
+
 
 // Custom Filters
 
@@ -42,6 +44,8 @@ add_filter('mce_buttons_2', 'wpb_mce_buttons_2');
 add_filter( 'tiny_mce_before_init', 'my_mce_before_init_insert_formats' ); 
 
 add_filter( 'embed_oembed_html', 'custom_oembed_filter', 10, 4 ) ;
+
+add_filter('image_send_to_editor','give_linked_images_class',10,8);
 
 
 
@@ -392,4 +396,30 @@ function give_linked_images_class($html, $id, $caption, $title, $align, $url, $s
   }
   return $html;
 }
-add_filter('image_send_to_editor','give_linked_images_class',10,8);
+
+function add_google_analytics() { ?>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-66879242-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+<?php }
+
+function searchfilter($query) {
+
+    if ($query->is_search && !is_admin() ) {
+        $query->set('post_type',array('post','work'));
+    }
+
+return $query;
+}
+
+add_filter('pre_get_posts','searchfilter');
+

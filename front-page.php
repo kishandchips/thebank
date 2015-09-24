@@ -24,11 +24,16 @@
 							$image_size = array('width' => 1670, 'height' => 650);
 							$image_full = get_field('slide_image');
 							$image = bfi_thumb($image_full, $image_size);
+
+							$image_size_large = array('width' => 1920, 'height' => 747);
+							$image_large = bfi_thumb($image_full, $image_size_large);							
 						?>
 
 					    <li>
-					    	<a href="<?php echo get_permalink($post_object->ID); ?>">
-						    	<img src="<?php echo $image; ?>" alt="" title="1">	
+					    	<a href="<?php if ($post_object) { echo get_permalink($post_object->ID);} ?>">
+								<img src="<?php echo $image; ?>"
+								     srcset="<?php echo $image_large; ?> 1670w"
+								     alt="<?php the_title(); ?>">						    	
 					    	</a>
 				    	</li>
 			    	<?php endwhile; ?>
